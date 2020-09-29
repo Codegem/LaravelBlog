@@ -29,7 +29,7 @@
 
 @include('_partials/header')
 @include('_partials/hero')
-@yield('_partials/body-main')
+@yield('content')
 @include('_partials/footer')
 
     <!-- ***** Footer Area End ***** -->

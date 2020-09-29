@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 class PostController extends Controller
 {
     public function index(){
-        return view('_partials/body-main');
+        return view('/pages/body-main');
+    }
+    
+    public function addPost(){
+        return view('pages.addform');
     }
 }

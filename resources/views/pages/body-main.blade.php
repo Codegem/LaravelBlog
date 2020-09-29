@@ -1,4 +1,5 @@
-@extends('../main')
+@extends('main')
+@section('content')
 <div class="main-content-wrapper section-padding-100">
         <div class="container">
             <div class="row justify-content-center">
@@ -291,4 +292,4 @@
             </div>
         </div>
     </div>
-</section>
+@endsection

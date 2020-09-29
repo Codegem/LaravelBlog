@@ -13,12 +13,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/','PostController@index');
-
-Route::get('/naujas', function () {
-    return view('/pages/naujas');
-});
-
-Route::get('/kitas', function () {
-    return view('/pages/kitas');
-});
+Route::get('/', 'PostController@index');
+Route::get('/add-post', 'PostController@addPost');
