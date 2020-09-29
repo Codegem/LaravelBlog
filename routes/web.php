@@ -13,9 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','PostController@index');
+
 Route::get('/naujas', function () {
-    return view('naujas');
+    return view('/pages/naujas');
+});
+
+Route::get('/kitas', function () {
+    return view('/pages/kitas');
 });
