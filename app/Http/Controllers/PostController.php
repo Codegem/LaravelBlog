@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Post;
 
 class PostController extends Controller
 {
@@ -22,4 +23,18 @@ class PostController extends Controller
         return view('pages.newblog');
     }
 
+    public function postinu(){
+
+        dd(request('username'));
+        Post::create([
+            'username' => request('username'),
+            'blogname' => request('blogname'),
+            'blogabout'  => request('blogabout'),
+            'blogcontent'  => request('blogcontent'),  
+            'imageid'  => request('imageid'),            
+            'user_id' => auth()->id()
+        ]);
+        return redirect('/');
+    }
+        
 }

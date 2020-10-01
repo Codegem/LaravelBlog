@@ -17,3 +17,4 @@ Route::get('/', 'PostController@index');
 Route::get('/add-post', 'PostController@addPost');
 Route::get('/single-blog', 'PostController@singlebBlog');
 Route::get('/new-blog', 'PostController@addNewBlog');
+Route::post('/posts','PostController@postinu');
