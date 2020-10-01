@@ -13,4 +13,13 @@ class PostController extends Controller
     public function addPost(){
         return view('pages.addform');
     }
+
+    public function singlebBlog(){
+        return view('pages.singleblog');
+    }
+
+    public function addNewBlog(){
+        return view('pages.newblog');
+    }
+
 }

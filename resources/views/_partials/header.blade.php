@@ -14,11 +14,11 @@
                                 <li class="nav-item active">
                                     <a class="nav-link" href="{{ url('/') }}">Home <span class="sr-only">(current)</span></a>
                                 </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="{{ url('/') }}">Home</a>
-                                    </div>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ url('/single-blog') }}">SingleBlog</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link bg-warning" href="{{ url('/new-blog') }}">Add New</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ url('/add-post') }}">Contact</a>

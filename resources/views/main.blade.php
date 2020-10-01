@@ -44,5 +44,7 @@
     <script src="js/plugins.js"></script>
     <!-- Active js -->
     <script src="js/active.js"></script>
+    <!-- Active js -->
+    <script src="js/imgupload.js"></script>
 
 </html>
