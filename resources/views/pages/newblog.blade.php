@@ -3,7 +3,7 @@
 <h1 class="text-center m-4">Add new blog here!</h1>
 
   <!--Form without header-->
-  <form method="POST" action="/post" class="form-horizontal">
+  <form method="POST" action="{!! url('/posts') !!}" class="form-horizontal">
   {{csrf_field()}}
       <div class="text-white rgba-stylish-strong py-5 px-5 z-depth-4">
 
@@ -56,7 +56,7 @@
 
         <!--Grid column-->
         <div class="text-center col-md-12 mt-3 mb-2">
-          <button type="submit" class="btn btn-success btn-block btn-rounded z-depth-1">Send</button>
+          <button type="submit" class="btn btn-success btn-block btn-rounded z-depth-1 submitas">Send</button>
         </div>
         <!--Grid column-->
     </div>

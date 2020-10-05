@@ -8,7 +8,8 @@ use App\Models\Post;
 class PostController extends Controller
 {
     public function index(){
-        return view('/pages/body-main');
+        $posts = Post::all();
+        return view('/pages/body-main', compact('posts'));
     }
     
     public function addPost(){
@@ -25,14 +26,14 @@ class PostController extends Controller
 
     public function postinu(){
 
-        dd(request('username'));
+        // dd(request('username'), request('blogname'), request('blogabout') );
+        
         Post::create([
             'username' => request('username'),
             'blogname' => request('blogname'),
             'blogabout'  => request('blogabout'),
             'blogcontent'  => request('blogcontent'),  
-            'imageid'  => request('imageid'),            
-            'user_id' => auth()->id()
+            'imageid'  => request('imageid')           
         ]);
         return redirect('/');
     }
