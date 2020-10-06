@@ -131,7 +131,7 @@ ol {
     list-style: none; }
 
 img {
-  height: auto;
+  height: 100%;
   max-width: 100%; }
 
 .mt-15 {
