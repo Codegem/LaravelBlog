@@ -4,13 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
-use App\Models\File;
+use Dotenv\Exception\ValidationException;
+use Illuminate\Support\Facades\File;
 
 class PostController extends Controller
 {
     public function index(){
-        $posts = Post::all();
-        return view('/pages/body-main', compact('posts'));
+        // $posts = Post::all();
+        // return view('/pages/body-main', compact('posts'));
+        return view('/auth/login');
     }
     
     public function addPost(){
@@ -41,6 +43,15 @@ class PostController extends Controller
     
     public function postinu(Request $request){
 
+    try{
+        $validatedData = $request->validate([
+            'username' => 'required',
+            'blogname' => 'required',
+            'blogabout' => 'required',
+            'blogcontent' => 'required',
+            'blogimage' => 'mimes:jpeg, jpg, png, gif|required|max:10000'
+        ]);
+        // if(!empty($validatedData)){ po returno}
         // dd(request('username'), request('blogname'), request('blogabout') );
         $path = $request->file('blogimage')->store('public/images');
         $filename = str_replace('public/', "", $path);   
@@ -52,21 +63,32 @@ class PostController extends Controller
             'blogcontent'  => request('blogcontent'),  
             'blogimage'  => $filename
         ]);
-
         return redirect('/');
+        return response()->json([
+            'status' => 'success',
+            'msg'    => 'Okay',
+        ], 201);
+    }
+    catch(ValidationException $exception){
+        return response() -> json([
+            'status' => 'error',
+            'msg'    => 'error',
+        ], 201);
+    }
     }
 
     public function updatinu(Request $request, Post $post){
-    // $posts->update($request->all());
-    // if ($request->file()) {
-    //     File::delete(storage_path('app/public/' . $posts->blogimage));
+    $post->update($request->all());
+    if ($request->file()) {
+        File::delete(storage_path('public/images' . $post->blogimage));
 
-    //     $path = $request->file('blogimage')->store('public/images');
-    //     $filename = str_replace('public/', "", $path);   
-    //     Post::where('id', $posts->getAttribute('id'))->update(['blogimage' => $filename]);
-    // }
-    Post::where('id', $post->getAttribute('id'))->update($request->except(['_token', 'blogimage'])); 
+        $path = $request->file('blogimage')->store('public/images');
+        $filename = str_replace('public/', "", $path);   
+        Post::where('id', $post->getAttribute('id'))->update(['blogimage' => $filename]);
+    }
+    Post::where('id', $post->getAttribute('id'))->update($request->except(['_token','blogimage'])); 
 
     return redirect('/');
     }
+
 }

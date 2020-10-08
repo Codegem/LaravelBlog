@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,8 +19,15 @@ Route::get('/add-post', 'PostController@addPost');
 // Route::get('/single-blog', 'PostController@singlebBlog');
 Route::get('/new-blog', 'PostController@addNewBlog');
 Route::post('/posts','PostController@postinu');
-Route::post('/update','PostController@updatinu');
+Route::post('/update.{post}','PostController@updatinu');
 Route::get('/admin','PostController@adminpanel');
 Route::get('/delete.{post}', 'PostController@delete');
 Route::get('/editblog.{post}', 'PostController@edit');
 Route::get('/single-blog.{post}', 'PostController@singlebBlog');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

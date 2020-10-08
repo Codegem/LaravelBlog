@@ -1,7 +1,7 @@
 @extends('main')
 @section('content')
 
-<form method="POST" action="/update" class="form-horizontal" enctype="multipart/form-data">
+<form method="POST" action="/update.{{$post->id}}" class="form-horizontal" enctype="multipart/form-data">
   {{csrf_field()}}
       <div class="text-white rgba-stylish-strong py-5 px-5 z-depth-4">
 
@@ -36,7 +36,7 @@
                   <div class="input-group">
                       <span class="input-group-btn">
                           <span class="btn btn-danger btn-file">
-                              Browse… <input type="file" id="imgInp" name="imageid">
+                              Browse… <input type="file" id="imgInp" name="blogimage">
                           </span>
                       </span>
                       <input type="text" class="form-control " id="atvaizdas" readonly>
