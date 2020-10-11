@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,11 +26,10 @@
         </div>
     </div>
     <!-- Preloader End -->
-
-@include('_partials/header')
-@include('_partials/hero')
-@yield('content')
-@include('_partials/footer')
+    @include('_partials/header')
+    @include('_partials/hero')
+    @yield('content')
+    @include('_partials/footer')
 
     <!-- ***** Footer Area End ***** -->
 </body>

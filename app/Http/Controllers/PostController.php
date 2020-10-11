@@ -9,10 +9,15 @@ use Illuminate\Support\Facades\File;
 
 class PostController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth',['except' => ['contact', 'home']]);    
+    }
+
     public function index(){
-        // $posts = Post::all();
+        $posts = Post::all();
         // return view('/pages/body-main', compact('posts'));
-        return view('/auth/login');
+        return view('pages.body-main', compact('posts'));
     }
     
     public function addPost(){

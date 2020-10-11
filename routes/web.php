@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// Route::get('/', 'Auth\LoginController@showLoginForm')->name('login');
+
 
 Route::get('/', 'PostController@index');
 Route::get('/add-post', 'PostController@addPost');
@@ -26,8 +28,8 @@ Route::get('/editblog.{post}', 'PostController@edit');
 Route::get('/single-blog.{post}', 'PostController@singlebBlog');
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/body-main', [App\Http\Controllers\HomeController::class, 'index'])->name('login');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/body-main', [App\Http\Controllers\HomeController::class, 'index'])->name('body-main');

@@ -13,9 +13,8 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth',['except' => ['showListings', 'showListing', 'search']]);    
     }
-
     /**
      * Show the application dashboard.
      *
@@ -24,6 +23,6 @@ class HomeController extends Controller
     public function index()
     {
         $posts = Post::all();
-        return view('/pages/body-main', compact('posts'));
+        return view('/home', compact('posts'));
     }
 }

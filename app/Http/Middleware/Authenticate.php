@@ -18,4 +18,22 @@ class Authenticate extends Middleware
             return route('login');
         }
     }
+    // public function handle($request, Closure $next)
+    // {
+    // if ($this->auth->check()) {
+    //     return redirect('/admin');
+    // }
+    // return $next($request);
+    // }
+    public function checkLogin()
+    {
+    if (auth()->user()) 
+    {
+         return redirect(route('home'));
+    }
+    else
+    {
+           return redirect(route('login'));
+    }
+    }
 }
